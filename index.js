@@ -7,18 +7,18 @@ for (let mosterdiv of monsters) {
 
 
 
-function showMonsters() {
+function showMonsters(mosterdiv) {
   const monster=document.createElement('div');
   monster.className='monster';
   const img=document.createElement('img');
-  img.src='https://robohash.org/6?set=set2';
-  img.alt='Kazi Ariyan';
+  img.src=`https://robohash.org/${mosterdiv.id}?set=set2`;
+  img.alt=mosterdiv.name;
   const mname=document.createElement('p');
   mname.className='name'
-  mname.innerText='Kazi Ariyan 1'
+  mname.innerText=mosterdiv.name;
   const email=document.createElement('p')
   email.className='email'
-  email.innerText='info@easylearningbd.com'
+  email.innerText=mosterdiv.email;
   monster.append(img,mname,email);
   document.querySelector('.monsters').append(monster);
   console.log(monster);
@@ -43,3 +43,14 @@ function notFound(){
 
 
 
+document.querySelector('#search-monster').addEventListener('keyup',
+function(e){
+  const keyword=e.target.value.toLowerCase();
+  console.log(e);
+  console.log(keyword);
+
+  const findmonster=document.querySelector('.monster');
+  for(let monster of findmonster){
+    console.log(monster.children);
+  }
+});
